@@ -16,7 +16,7 @@
                 <td>{{ $support->status }}</td>
                 <td>{{ $support->body }}</td>
                 <td>
-
+                    >
                 </td>
             </tr>
         @endforeach
