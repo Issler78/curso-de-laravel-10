@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Admin\{SupportController};
 use App\Http\Controllers\Site\SiteController;
-use App\Models\Support;
 use Illuminate\Support\Facades\Route;
 
 Route::delete('/supports/{id}', [SupportController::class, 'destroy'])->name('supports.destroy');
