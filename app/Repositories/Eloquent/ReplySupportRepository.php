@@ -16,7 +16,9 @@ class ReplySupportRepository implements ReplyRepositoryInterface
 
     public function getAllBySupport(string $supportId): array
     {
-        $replies = $this->model->where('support_id', $supportId)->get();
+        $replies = $this->model
+                        ->with(['support', 'user'])
+                        ->where('support_id', $supportId)->get();
 
         return $replies->toArray();
     }
