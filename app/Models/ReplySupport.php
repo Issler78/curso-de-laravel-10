@@ -12,6 +12,8 @@ class ReplySupport extends Model
 {
     use HasFactory, HasUuids;
 
+    protected $fillable = ['user_id', 'support_id', 'content'];
+
     protected $table = 'replies_support';
 
     public function user(): BelongsTo

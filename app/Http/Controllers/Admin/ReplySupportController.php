@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\DTO\Replies\CreateReplyDTO;
 use App\Http\Controllers\Controller;
 use App\Services\ReplySupportService;
 use App\Services\SupportService;
@@ -22,8 +23,16 @@ class ReplySupportController extends Controller
         }
 
         $replies = $this->replyService->getAllBySupport($id);
-        dd($replies);
         
         return view('admin.supports.replies.replies', compact('support', 'replies'));
+    }
+
+    public function store(Request $request)
+    {
+        $this->replyService->createNew(
+            CreateReplyDTO::makeFromRequest($request)
+        );
+
+        return redirect()->route('replies.index', $request->support_id)->with('message', 'Mensagem Enviada!');
     }
 }
