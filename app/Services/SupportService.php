@@ -7,6 +7,7 @@ use App\DTO\Supports\UpdateSupportDTO;
 use App\Repositories\Contracts\PaginationInterface;
 use App\Repositories\Contracts\SupportRepositoryInterface;
 use GuzzleHttp\Promise\Create;
+use Illuminate\Support\Facades\Gate;
 use stdClass;
 
 class SupportService
@@ -45,7 +46,7 @@ class SupportService
     }
 
     public function delete(string $id): void
-    {
+    {   
         $this->repository->delete($id);
     }
 }
