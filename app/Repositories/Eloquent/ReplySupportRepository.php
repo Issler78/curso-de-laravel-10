@@ -32,4 +32,14 @@ class ReplySupportRepository implements ReplyRepositoryInterface
 
         return (object) $reply->toArray();
     }
+
+    public function delete(string $id): bool
+    {
+        if (!$reply = $this->model->find($id))
+        {
+            return false;
+        }
+
+        return $reply->delete();
+    }
 }

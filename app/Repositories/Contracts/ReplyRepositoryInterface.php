@@ -9,4 +9,5 @@ interface ReplyRepositoryInterface
 {
     public function getAllBySupport(string $supportId): array;
     public function createNew(CreateReplyDTO $dto): stdClass;
+    public function delete(string $id): bool;
 }
