@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\DTO\Supports\CreateSupportDTO;
 use App\DTO\Supports\UpdateSupportDTO;
+use App\Enums\SupportStatus;
 use App\Repositories\Contracts\PaginationInterface;
 use App\Repositories\Contracts\SupportRepositoryInterface;
 use GuzzleHttp\Promise\Create;
@@ -48,5 +49,10 @@ class SupportService
     public function delete(string $id): void
     {   
         $this->repository->delete($id);
+    }
+
+    public function updateStatus(string $id, SupportStatus $status)
+    {
+        $this->repository->updateStatus($id, $status);
     }
 }

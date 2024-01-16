@@ -6,6 +6,7 @@ use App\DTO\Supports\{
     CreateSupportDTO,
     UpdateSupportDTO
 };
+use App\Enums\SupportStatus;
 use stdClass;
 
 interface SupportRepositoryInterface
@@ -21,4 +22,6 @@ interface SupportRepositoryInterface
     public function update(UpdateSupportDTO $dto): stdClass|null;
 
     public function delete(string $id): void;
+
+    public function updateStatus(string $id, SupportStatus $status): void;
 }
