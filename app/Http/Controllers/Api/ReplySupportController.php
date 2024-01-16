@@ -28,3 +28,13 @@ class ReplySupportController extends Controller
         
         return ReplySupportResource::collection($replies);
     }
+
+    public function createNewReply(StoreReplySupportRequest $request)
+    {
+        $reply = $this->replyService->createNew(
+            CreateReplyDTO::makeFromRequest($request)
+        );
+
+        return new ReplySupportResource($reply);
+    }
+}
