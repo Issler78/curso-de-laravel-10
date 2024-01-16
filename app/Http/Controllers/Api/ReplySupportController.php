@@ -9,6 +9,7 @@ use App\Http\Resources\ReplySupportResource;
 use App\Services\ReplySupportService;
 use App\Services\SupportService;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ReplySupportController extends Controller
 {
@@ -35,6 +36,8 @@ class ReplySupportController extends Controller
             CreateReplyDTO::makeFromRequest($request)
         );
 
-        return new ReplySupportResource($reply);
+        return (new ReplySupportResource($reply))->
+                response()->
+                setStatusCode(201);
     }
 }

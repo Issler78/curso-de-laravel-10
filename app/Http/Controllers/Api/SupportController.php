@@ -43,7 +43,9 @@ class SupportController extends Controller
             CreateSupportDTO::makeFromRequest($request)
         );
 
-        return new SupportResource($support);
+        return (new SupportResource($support))->
+                response()->
+                setStatusCode(201);
     }
 
     /**
