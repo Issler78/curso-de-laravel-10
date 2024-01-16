@@ -40,4 +40,11 @@ class ReplySupportController extends Controller
                 response()->
                 setStatusCode(201);
     }
+
+    public function destroy(string $id)
+    {
+        $this->replyService->delete($id);
+
+        return response()->json([], 204);
+    }
 }
