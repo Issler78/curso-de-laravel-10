@@ -10,6 +10,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanc
 Route::post('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
 
 Route::middleware(['auth:sanctum'])->group( function () {
+    Route::get('/replies/{support_id}', [ReplySupportController::class, 'getRepliesFromSupport']);
     
     Route::apiResource('/supports', SupportController::class);
 
