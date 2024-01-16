@@ -16,6 +16,8 @@ class ReplySupport extends Model
 
     protected $fillable = ['user_id', 'support_id', 'content'];
 
+    protected $with = ['user'];
+
     protected $table = 'replies_support';
 
     public function createdAt(): Attribute
